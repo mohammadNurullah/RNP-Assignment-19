@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./node_modules/@prisma/client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  username String
+  // Add other user fields
+}
+
+model Cart {
+  id     Int      @id @default(autoincrement())
+  userId Int
+  // Add other cart fields
+}
+
+// Define other models (Category, Order, Product, ProductMeta, ProductReview) similarly
